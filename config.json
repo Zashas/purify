@@ -1,0 +1,7 @@
+{
+    "user_id":"42",
+    "playlist_id":"42",
+    "client_id":"42",
+    "client_secret":"42",
+    "redirect_uri":"http://foo.bar/callyourmother/"
+}
