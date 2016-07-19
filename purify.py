@@ -49,7 +49,7 @@ def get_playlist_tracks(sp):
             break
 
         for track in playlist['items']:
-            playlist_ids.add(track['track']['uri'])
+            playlist_ids.add(track['track']['id'])
 
         count += 1
 
