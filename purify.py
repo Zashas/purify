@@ -41,10 +41,17 @@ def get_tracks_id(sp, tracks):
 
 #Returns a set containing the tracks' IDs of the playlist specified in the config file
 def get_playlist_tracks(sp):
-    playlist = sp.user_playlist_tracks(config['user_id'], config['playlist_id'])
     playlist_ids = set()
-    for track in playlist['items']:
-        playlist_ids.add(track['track']['id'])
+    count = 0
+    while True:
+        playlist = sp.user_playlist_tracks(config['user_id'], config['playlist_id'], offset=count*100, limit=100)
+        if len(playlist['items']) == 0:
+            break
+
+        for track in playlist['items']:
+            playlist_ids.add(track['track']['uri'])
+
+        count += 1
 
     return playlist_ids
 
